@@ -27,3 +27,7 @@ class CarWashStation:
             / self.distance_from_city_center,
             1,
         )
+
+    def wash_single_car(self, car):
+        if self.clean_power > car.clean_mark:
+            car.clean_mark = self.clean_power
