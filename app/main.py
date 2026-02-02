@@ -31,3 +31,13 @@ class CarWashStation:
     def wash_single_car(self, car):
         if self.clean_power > car.clean_mark:
             car.clean_mark = self.clean_power
+
+    def serve_cars(self, cars):
+        total_income = 0
+
+        for car in cars:
+            if car.clean_mark < self.clean_power:
+                total_income += self.calculate_washing_price(car)
+                self.wash_single_car(car)
+
+        return round(total_income, 1)
